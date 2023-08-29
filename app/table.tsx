@@ -7,15 +7,9 @@ import {
   TableCell,
   Text
 } from '@tremor/react';
+import { IUser } from './_helper/server/models/users';
 
-interface User {
-  id: number;
-  name: string;
-  username: string;
-  email: string;
-}
-
-export default async function UsersTable({ users }: { users: User[] }) {
+export default async function UsersTable({ users }: { users: IUser[] }) {
   return (
     <Table>
       <TableHead>

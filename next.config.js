@@ -4,8 +4,10 @@ const nextConfig = {
     domains: ['avatars.githubusercontent.com', 'avatar.vercel.sh']
   },
   experimental: {
-    serverComponentsExternalPackages: ['@tremor/react']
-  }
+    serverComponentsExternalPackages: ['@tremor/react',"mongoose"],
+    appDir: true,
+    esmExternals: "loose",
+  },
 };
 
 module.exports = nextConfig;
