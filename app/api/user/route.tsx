@@ -1,20 +1,9 @@
-import type { NextApiRequest, NextApiResponse } from 'next'
-import { db } from '../../_helper/server'
+import { NextResponse } from 'next/server'
+import UserModel from '../../_helper/server/models/users';
+import dbConnection from '../../lib/dbConnect';
 
-type User = {
-  username: string,
-  password: string,
-}
-
-export default async function handler(
-  req: NextApiRequest,
-  res: NextApiResponse<User[]>
-) {
-  const { method } = req
-  const users = await db.userDb.find()
-  switch (method) {
-    case 'GET':
-      res.status(200).json(users)
-      break
-  }
+export async function GET(request: Request) {
+  await dbConnection()
+  const users = await UserModel.find();
+  return NextResponse.json(users)
 }
