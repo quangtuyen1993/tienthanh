@@ -1,7 +1,7 @@
 'use client';
 
 import { Card, Metric, Text, Title, BarList, Flex, Grid } from '@tremor/react';
-import Chart from '../_components/chart';
+import Chart from '../../_components/chart';
 import UserInfo from '_components/user/user_info';
 
 const website = [
@@ -45,7 +45,7 @@ const data = [
   }
 ];
 
-export default function PlaygroundPage() {
+export default function SettingPage() {
   return (
     <main className="p-4 md:p-10 mx-auto max-w-7xl">
       <UserInfo />

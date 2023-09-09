@@ -1,7 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
-    domains: ['avatars.githubusercontent.com', 'avatar.vercel.sh']
+    domains: ['platform-lookaside.fbsbx.com','avatar.vercel.sh'], formats: ['image/avif', 'image/webp'],
   },
   experimental: {
     serverComponentsExternalPackages: ['@tremor/react',"mongoose"],

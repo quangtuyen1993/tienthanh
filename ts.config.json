@@ -1,9 +1,0 @@
-{
-    "compilerOptions": {
-        "strictPropertyInitialization": false,
-        "emitDecoratorMetadata": true,
-        "experimentalDecorators": true,
-        "strictNullChecks": true,
-        "strict": true
-    }
-}

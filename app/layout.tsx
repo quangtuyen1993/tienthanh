@@ -1,14 +1,11 @@
+import { NextAuthProvider } from 'app_provider';
 import './globals.css';
-
-import { Analytics } from '@vercel/analytics/react';
-import Nav from './nav';
-import Toast from './toast';
 import { Suspense } from 'react';
+import Nav from '_components/nav';
 
 export const metadata = {
-  title: 'Next.js 13 + PlanetScale + NextAuth + Tailwind CSS',
-  description:
-    'A user admin dashboard configured with Next.js, PlanetScale, NextAuth, Tailwind CSS, TypeScript, ESLint, and Prettier.'
+  title: 'Tien Thanh ',
+  description: 'TIEM PHONG'
 };
 
 export default async function RootLayout({
@@ -20,11 +17,11 @@ export default async function RootLayout({
     <html lang="en" className="h-full bg-gray-50">
       <body className="h-full">
         <Suspense>
-          <Nav />
+          <NextAuthProvider>
+            <Nav />
+          </NextAuthProvider>
         </Suspense>
         {children}
-        <Analytics />
-        <Toast />
       </body>
     </html>
   );

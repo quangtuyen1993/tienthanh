@@ -9,7 +9,9 @@ import Image from 'next/image';
 
 const navigation = [
   { name: 'Dashboard', href: '/' },
-  { name: 'Playground', href: '/playground' }
+  { name: 'Posts', href: '/posts' },
+  { name: 'Setting', href: '/setting' },
+  { name: 'Social', href: '/social' },
 ];
 
 function classNames(...classes: string[]) {
