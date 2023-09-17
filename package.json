@@ -8,6 +8,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@auth/core": "^0.14.0",
     "@headlessui/react": "^1.7.15",
     "@heroicons/react": "^2.0.18",
     "@planetscale/database": "^1.7.0",
@@ -41,5 +42,8 @@
     "singleQuote": true,
     "tabWidth": 2,
     "trailingComma": "none"
+  },
+  "devDependencies": {
+    "@types/jsonwebtoken": "^9.0.2"
   }
 }
