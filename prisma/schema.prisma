@@ -1,0 +1,24 @@
+generator client {
+    provider = "prisma-client-js"
+}
+
+datasource db {
+    provider  = "mongodb"
+    url       = "mongodb://127.0.0.1:27017/tienthanh?directConnection=true&&replicaSet=rs0"// uses connection pooling
+}
+
+model User {
+    email String  @unique
+    id    String  @id @default(auto()) @map("_id") @db.ObjectId
+    name  String?
+    posts Post[]
+}
+
+model Post {
+    authorId  String? @db.ObjectId
+    content   String?
+    id        String  @id @default(auto()) @map("_id") @db.ObjectId
+    published Boolean @default(false)
+    title     String
+    author    User?   @relation(fields: [authorId], references: [id])
+}
