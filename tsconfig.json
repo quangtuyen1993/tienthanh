@@ -41,6 +41,7 @@
       "@/auth": [
         "api/auth/[...nextauth].ts"
       ],
+      
     },
   },
   "include": [

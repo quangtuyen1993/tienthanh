@@ -1,5 +1,5 @@
 import prisma from "@/lib/db/prisma";
-import type { Post } from '@prisma/client'
+import type { Info, Image } from '@prisma/client'
 import { getToken } from "next-auth/jwt";
 import { NextResponse, NextRequest } from "next/server";
 
@@ -10,11 +10,16 @@ export async function GET(request: NextRequest) {
 
 export async function POST(request: NextRequest) {
     const token = await getToken({ req: request });
-    const data: Post = await prisma.post.create({
+    const image = await prisma.image.create({ data: { url: "", }, })
+
+    const data: Info = await prisma.info.create({
         data: {
-            content: "sample_post",
-            title: "sample_post",
-            published: true
+            thumbnail: {
+                connect: { id: image.id }
+            },
+        },
+        include: {
+            thumbnail: true
         }
     });
     return NextResponse.json(data);

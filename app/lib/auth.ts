@@ -1,7 +1,6 @@
 import NextAuth, { NextAuthOptions, Session, User } from "next-auth";
 import { JWT } from "next-auth/jwt";
 import CredentialsProvider from "next-auth/providers/credentials";
-import { signIn } from "next-auth/react";
 import _logger from "next-auth/utils/logger";
 
 export const authOptions: NextAuthOptions = {

@@ -1,0 +1,13 @@
+{
+  "type": "service_account",
+  "project_id": "tienthanh-400217",
+  "private_key_id": "f3896595041bb2dee03ea736a13a160627f02dee",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQCxDuwZmXnolbsK\nDCQyvlBdvcXj1fuE3xvaQLpm3+WYuHuMSa+Dee+AxLN2Hp0f9awhJ1IhaN6x4lJ+\nXkxlzuY3ZxEr2jCqerRy1nvHA5bzX55y0yX6URGSBn6NjY87jsFIe+sp67pPeTmv\nKL3VVckiFt6CMcd2EGRx0M02BkKtPLGqT7Hn+TKNOWvnAbiOCIbhTqVwe+wieB3U\nX4fHUJ99tcgeTaHqiNCwEIc8vNfOcYlOMPPhdY6rQFI95qghdhcDSDywsY28TRrr\n2igC8GyqwMNHB1YzllllGVeK0OLPIGINgqx1C1sYWKkm3mRtou+YOaZ/101Tu99D\ngnrB5wErAgMBAAECggEABcjEA84Uwnlpw9lDsXiwLW/OsDPEZMHZKhclP8keug+E\n0b9ygWwRW/aRGlHDtlCTT/312+uOIueO5Fv2SPkqYjL2x6T4JAmgLYQ+RPEkFE1S\nYtPtELFnTorxxXQTctGmFNUfiJ4P1xrRvJwrH3YO/RMcL8qqhnvgnCtDGPm5Yelk\nvlF8gxBVgdWmaAzz5P1UkNgAGRE1rPDfM5PosHcT3MTwMuYxKA4jBDypRrnWPdoo\nJcb2DTxabHcM6rncJaGAGkPNKr1DsnTtUTizRDJ3fWSoLAxlaVzg+TFPeFjINIA9\nd4w+Y5zi8UPu40ep0VppGcintSskWdsPNchFEkmcEQKBgQDkoMol4+CrSt7taY6Z\nT2gBEx3UjcDQ9koqOafbz+cIfCI2lVxpoRn5etC/z+cy2AbnFQL1LRRsDzdAugHJ\nDC4ZRc/94xTdElbhkySJg4sqCcZxTtdN4MpHef7DmqyYaekSAy2UpygD9O6ys8kR\nisVLlxMiSH4fTLbWCP9k2vGM8wKBgQDGQZKZs2d+/Rp+w9VqV3iFETOxT59lhvzK\nibmsKS57pJMYEimH5B8ywRC5/KoBTtnVhuMqFcfjBRS9moT9wQa8122NS9Oj5zoM\nIZXf6jQngMu9YPubEKPaqxmKxaoGFj8WrAapk90Oa+NthB2umDoDozKIx+1D6Lgk\n/OA/kMlo6QKBgHKr7xhYFqzzraK4qgxdVpYLZ4/f1ZE5pvNM3dOTkJah5GsqOSLF\n6ghGwIMknRrUXYnz8PrWNIMKkrUFVrXnRQvqByuZhTJo62jS66WJc/iO1JiqabUn\nBW4aU1z6rIz5uiwNqgQAX0K0zDCXmkcRKmoCiVdNsuyyBpaOBsMoSbVfAoGAa0kG\n1UghhLXhBaJiNibZoGDbsWMeJenzmIMJSCIM9nnr48XIVbJcM7IIpC0XrpeGCCfz\nfE3HGpIgVC5vM4amZ8DIlwLmp7a0UeZG3aI20P3Aw13dKl/J28ZljxRCWwLk5xb2\nkAPlRy2ZKCWrjlTwaBGDgkN2oR4psFJr49otNCkCgYEA1KPeDePAUSZLFoEsnp74\nBI56QPpEKUd0g5SHl+nU5eym1DIUbkd52PRRErXcLWeiUzUAjZJ/PjiVcX5ugap3\nM2YDpDOmhtz/AYQ1h/5+QBFvgY7yIQcJraRsmCNHTjG/vqRfDIabgemCnKbfplp9\nKIqnmwA7m7GL9YN45EX0H/g=\n-----END PRIVATE KEY-----\n",
+  "client_email": "tienthanh@tienthanh-400217.iam.gserviceaccount.com",
+  "client_id": "101450418431269017822",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/tienthanh%40tienthanh-400217.iam.gserviceaccount.com",
+  "universe_domain": "googleapis.com"
+}
