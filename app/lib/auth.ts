@@ -1,14 +1,13 @@
+import { jwtVerify } from "jose";
 import NextAuth, { NextAuthOptions, Session, User } from "next-auth";
 import { JWT } from "next-auth/jwt";
 import CredentialsProvider from "next-auth/providers/credentials";
 import _logger from "next-auth/utils/logger";
 
 export const authOptions: NextAuthOptions = {
-
     providers: [
         CredentialsProvider({
-            id: "domain-login",
-            name: "Domain Account",
+            name: "credentials",
             credentials: {
                 email: {
                     label: "Email",
@@ -36,7 +35,7 @@ export const authOptions: NextAuthOptions = {
         },
         async session({ session, token, user }: { session: Session, token: JWT, user: User }) {
             session.token = token.token
-            session.user = undefined
+            session.user = user
             return session;
         },
         async jwt({ token, user, account }) {
@@ -54,3 +53,27 @@ export const authOptions: NextAuthOptions = {
 
 }
 export default NextAuth(authOptions)
+
+interface UserJwtPayload {
+    jti: string
+    iat: number
+}
+
+export const getJwtSecrectKey = () => {
+    const secret = process.env.JWT_SECRET_KEY
+
+    if (!secret && secret?.length == 0) {
+        throw new Error('The enviroment variable JWT_SECRET_KEY is not set.')
+    }
+
+    return secret
+}
+
+export const verifyAuth = async (token: string) => {
+    try {
+        const verified = await jwtVerify(token, new TextEncoder().encode(getJwtSecrectKey()))
+        return verified.payload as UserJwtPayload
+    } catch (error) {
+        throw new Error('Your token has expired')
+    }
+}
