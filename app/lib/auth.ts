@@ -1,79 +1,62 @@
-import { jwtVerify } from "jose";
-import NextAuth, { NextAuthOptions, Session, User } from "next-auth";
-import { JWT } from "next-auth/jwt";
-import CredentialsProvider from "next-auth/providers/credentials";
-import _logger from "next-auth/utils/logger";
+import NextAuth, { NextAuthOptions } from 'next-auth';
+import CredentialsProvider from 'next-auth/providers/credentials';
+import _logger from 'next-auth/utils/logger';
 
 export const authOptions: NextAuthOptions = {
-    providers: [
-        CredentialsProvider({
-            name: "credentials",
-            credentials: {
-                email: {
-                    label: "Email",
-                    type: "email",
-                    placeholder: "example@example.com",
-                },
-                password: { label: "Password", type: "password" },
-            },
-            async authorize(credentials) {
-                const user = { id: "1", name: "J Smith", email: "jsmith@example.com", token: "access_token" }
-                return user
-            },
+  providers: [
+    CredentialsProvider({
+      name: 'credentials',
+      credentials: {
+        email: {
+          label: 'Email',
+          type: 'email',
+          placeholder: 'example@example.com'
+        },
+        password: { label: 'Password', type: 'password' }
+      },
+      async authorize(credentials) {
+        console.log(`http://localhost:3000/api/login`);
+        const res = await fetch(`http://localhost:3000/api/login`, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({
+            username: credentials?.email,
+            password: credentials?.password
+          })
+        });
 
-        }),
-    ],
-    secret: process.env.NEXTAUTH_SECRET,
-    session: {
-        strategy: "jwt",
-        maxAge: 30 * 24 * 60 * 60,
-        updateAge: 24 * 60 * 60,
+        if (res.status === 401) return null;
+        const user = await res.json();
+
+        if (user) {
+          // Any object returned will be saved in `user` property of the JWT
+          return user;
+        } else {
+          // If you return null then an error will be displayed advising the user to check their details.
+          return null;
+          // You can also Reject this callback with an Error thus the user will be sent to the error page with the error message as a query parameter
+        }
+      }
+    })
+  ],
+  // secret: process.env.NEXTAUTH_SECRET,
+  // session: {
+  //   strategy: 'jwt',
+  // },
+  callbacks: {
+    async jwt({ token, user, trigger, session }) {
+      if (trigger === 'update') {
+        return { ...token, ...session.user };
+      }
+      return { ...token, ...user };
     },
-    callbacks: {
-        async signIn({ user }: { user: User }) {
-            return true
-        },
-        async session({ session, token, user }: { session: Session, token: JWT, user: User }) {
-            session.token = token.token
-            session.user = user
-            return session;
-        },
-        async jwt({ token, user, account }) {
-            if (user) {
-                token.id = user.id;
-                token.token = user.token;
-            }
-            if (account) {
-                token.accessToken = account.access_token;
-            }
-            return token;
-        },
 
+    async session({ session, token }) {
+      session.user = token as any;
+      return session;
     }
-
-}
-export default NextAuth(authOptions)
-
-interface UserJwtPayload {
-    jti: string
-    iat: number
-}
-
-export const getJwtSecrectKey = () => {
-    const secret = process.env.JWT_SECRET_KEY
-
-    if (!secret && secret?.length == 0) {
-        throw new Error('The enviroment variable JWT_SECRET_KEY is not set.')
-    }
-
-    return secret
-}
-
-export const verifyAuth = async (token: string) => {
-    try {
-        const verified = await jwtVerify(token, new TextEncoder().encode(getJwtSecrectKey()))
-        return verified.payload as UserJwtPayload
-    } catch (error) {
-        throw new Error('Your token has expired')
-    }
-}
+  }
+};
+export default NextAuth(authOptions);
