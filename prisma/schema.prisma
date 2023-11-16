@@ -21,13 +21,12 @@ model Post {
     title     String
 }
 
-model Image {
-    id         String   @id @default(auto()) @map("_id") @db.ObjectId
+type Image {
     url        String
     createDate DateTime @default(now())
-    info       Info[]
-    infoIDs    String[] @db.ObjectId
-    infos      Info[]   @relation(name: "infos", fields: [infoIDs], references: [id])
+    with       Int
+    height     Int
+    name       String
 }
 
 model Info {
@@ -36,9 +35,9 @@ model Info {
     summary     String   @default("")
     description String   @default("")
     thumbnailId String   @db.ObjectId
-    thumbnail   Image?   @relation(fields: [thumbnailId], references: [id])
+    thumbnail   Image?  
     bannerIds   String[] @db.ObjectId
-    banners     Image[]  @relation(name: "infos", fields: [bannerIds], references: [id])
+    banners     Image[]  
 
     @@map(name: "info")
 }

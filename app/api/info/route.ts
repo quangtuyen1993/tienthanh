@@ -10,16 +10,11 @@ export async function GET(request: NextRequest) {
 
 export async function POST(request: NextRequest) {
     const token = await getToken({ req: request });
-    const image = await prisma.image.create({ data: { url: "", }, })
 
     const data: Info = await prisma.info.create({
         data: {
-            thumbnail: {
-                connect: { id: image.id }
-            },
-        },
-        include: {
-            thumbnail: true
+            thumbnailId: '-1',
+            
         }
     });
     return NextResponse.json(data);

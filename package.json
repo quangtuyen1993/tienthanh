@@ -9,6 +9,8 @@
   },
   "dependencies": {
     "@auth/core": "^0.14.0",
+    "@aws-sdk/client-s3": "^3.433.0",
+    "@aws-sdk/lib-storage": "^3.433.0",
     "@google-cloud/storage": "^7.1.0",
     "@headlessui/react": "^1.7.15",
     "@heroicons/react": "^2.0.18",
@@ -22,6 +24,7 @@
     "@types/react-dom": "18.2.4",
     "@vercel/analytics": "^1.0.1",
     "autoprefixer": "^10.4.14",
+    "cloudinary": "^1.41.0",
     "eslint": "8.42.0",
     "eslint-config-next": "13.4.5",
     "formidable": "^3.5.1",
