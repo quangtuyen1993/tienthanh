@@ -9,6 +9,9 @@
     "allowJs": true,
     "skipLibCheck": true,
     "strict": true,
+    "types": [
+      "reflect-metadata"
+    ],
     "forceConsistentCasingInFileNames": true,
     "noEmit": true,
     "esModuleInterop": true,
@@ -41,14 +44,14 @@
       "@/auth": [
         "api/auth/[...nextauth].ts"
       ],
-      
     },
   },
   "include": [
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx",
-    ".next/types/**/*.ts"
+    ".next/types/**/*.ts",
+    "app/(secure)/melon"
   ],
   "exclude": [
     "node_modules"

@@ -1,8 +1,10 @@
 import './globals.css';
+import SWRProvider from './lib/providers/swr_provider';
+import { UserProvider } from '@auth0/nextjs-auth0/client';
 
 export const metadata = {
-  title: 'Tien Thanh ',
-  description: 'TIEM PHONG'
+  title: 'Tiến Thanh ',
+  description: 'Tiêm Phòng'
 };
 
 export default async function RootLayout({
@@ -13,7 +15,11 @@ export default async function RootLayout({
   return (
     <html lang="en" className="h-full bg-gray-50">
       <body className="h-full">
-        {children}
+        <SWRProvider>
+          <UserProvider>
+            {children}
+          </UserProvider>
+        </SWRProvider>
       </body>
     </html>
   );
