@@ -32,6 +32,9 @@
     "strictNullChecks": true,
     "baseUrl": "./app/",
     "paths": {
+      "@/*": [
+        "./src/*"
+      ],
       "@/lib/*": [
         "lib/*"
       ],

@@ -3,11 +3,11 @@ import { Suspense } from "react";
 
 export default async function Layout({ children }: { children: React.ReactNode }) {
     return (
-        <div className="container mr-2">
+        <div className="mr-2" style={{ width: "100%" }}>
             <Suspense>
-                    <Nav />
+                <Nav />
+                {children}
             </Suspense>
-            {children}
         </div>
     )
 }

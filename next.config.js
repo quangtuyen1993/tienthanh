@@ -1,6 +1,12 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  reactStrictMode: false,
+  reactStrictMode: true,
+  swcMinify: true,
+  modularizeImports: {
+    '@mui/icons-material': {
+      transform: '@mui/icons-material/{{member}}',
+    },
+  },
   skipTrailingSlashRedirect: true,
   images: {
     formats: [
@@ -29,7 +35,7 @@ const nextConfig = {
   },
 
   experimental: {
-    serverComponentsExternalPackages: ['@tremor/react', "mongoose"],
+    serverComponentsExternalPackages: ["mongoose"],
     esmExternals: "loose",
     optimizePackageImports: ['@mui/icons-material', '@mui/material'],
   },
